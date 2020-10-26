@@ -5,5 +5,7 @@
     <string name="Simpsons">Ayudante de Santa</string>
     <string name="Ovejero">Hamlet</string>
     <string name="Pug">Perrunicornio</string>
-    <string name="nombre">Mascota</string>
+    <string name="pnombre">Mascota</string>
+    <string name="menu_contacto">Contacto</string>
+    <string name="menu_about">Acerca de</string>
 </resources>

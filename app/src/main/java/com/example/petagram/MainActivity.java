@@ -4,29 +4,21 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.provider.ContactsContract;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.AdapterView;
 
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-    ArrayList<Mascota> mascotas;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        mascotas = new ArrayList<Mascota>();
-        mascotas.add(new Mascota (R.drawable.boxer, "Niko bellic", getResources().getDrawable(R.drawable.HuesoBlanco,R.drawable.HuesoDorado)));
-        mascotas.add(new Mascota (R.drawable.perrofry, "Seymour",getResources().getDrawable(R.drawable.HuesoBlanco,R.drawable.HuesoDorado)));
-        mascotas.add(new Mascota (R.drawable.ayudantedesanta, "Ayudante de Santa",getResources().getDrawable(R.drawable.HuesoBlanco,R.drawable.HuesoDorado)));
-        mascotas.add(new Mascota (R.drawable.ovejerito, "Hamlet", getResources().getDrawable(R.drawable.HuesoBlanco,R.drawable.HuesoDorado)));
-        mascotas.add(new Mascota (R.drawable.perrunicornio, "Perrunicornio", getResources().getDrawable(R.drawable.HuesoBlanco,R.drawable.HuesoDorado)));
 
-        ArrayList<String> nombresMascota = new ArrayList<>();
-        for (Mascota mascota : mascotas){
-            nombresMascota.add(mascotas.getClass(mascotas));
-        }
-     .setOnItemclickListener (new AdapterView.OnItemClickListener()){
+     CincoMascotas.setOnItemclickListener (new AdapterView.OnItemClickListener()){
             @Override
             public void onItemClick (AdapterView<?> parent, View view, int position, long id){
                 Intent intent = new Intent (MainActivity.this, CincoMascotas.class);
@@ -35,6 +27,24 @@ public class MainActivity extends AppCompatActivity {
                 finish();
             }
         }
-
     }
+    @Override
+    public boolean onCreateOptionsMenu (Menu menu){
+        getMenuInflater().inflate(R.menu.menu_opciones, menu);
+        return true;
+    }
+    public boolean onOptionsItemSelected (MenuItem item){
+        switch (item.getItemId()){
+            case R.id.mContacto:
+                Intent intent = new Intent (this, ActivityContacto.class);
+                startActivity (intent);
+                break;
+            case R.id.mAbout:
+                Intent i = new Intent (this, ActivityAbout.class);
+                startActivity(i);
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
 }
